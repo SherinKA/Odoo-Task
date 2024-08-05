@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="action_hospital_op" model="ir.actions.act_window">
+        <field name="name">Hospital OP</field>
+        <field name="res_model">hospital.op</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="hosp_op_view_tree" model="ir.ui.view">
+        <field name="model">hospital.op</field>
+        <field name="arch" type="xml">
+            <tree string="new">
+                <field name="op_number"/>
+                <field name="dob"/>
+                <field name="doctor"/>
+                <field name="patient"/>
+                <field name="fee"/>
+                <field name="age"/>
+                <field name="blood_group"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="hosp_op_view_form" model="ir.ui.view">
+        <field name="model">hospital.op</field>
+        <field name="arch" type="xml">
+            <form string="new">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="op_number"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="op_number"/>
+                            <field name="dob"/>
+                            <field name="doctor"/>
+                            <field name="patient"/>
+                        </group>
+                        <group>
+                            <field name="fee"/>
+                            <field name="age"/>
+                            <field name="blood_group"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>
+
+
+

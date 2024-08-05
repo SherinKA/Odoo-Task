@@ -1,0 +1,20 @@
+<odoo>
+    <record id="test_model_action" model="ir.actions.act_window">
+        <field name="name">Properties</field>
+        <field name="res_model">estate</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="estate_view_tree" model="ir.ui.view">
+        <field name="name">estate</field>
+        <field name="model">estate</field>
+        <field name="arch" type="xml">
+            <tree string="New_channel">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="postcode"/>
+                <field name="date_availability"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

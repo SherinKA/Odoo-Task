@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="test_machine_management" model="ir.actions.act_window">
+        <field name="name">Machine</field>
+        <field name="res_model">machine.management</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="machine_management_view_tree" model="ir.ui.view">
+        <field name="name">Machine</field>
+        <field name="model">machine.management</field>
+        <field name="arch" type="xml">
+            <tree string="new">
+                <field name="image" widget="image" class="oe_avatar" width="100px" height="100px"/>
+                <field name="name"/>
+                <field name="date_of_purchase"/>
+                <field name="purchase_value"/>
+                <field name="customer"/>
+                <field name="state"/>
+                <field name="description"/>
+                <field name="warranty"/>
+                <field name ="machine_instructions"/>
+            </tree>
+        </field>
+    </record>
+    <record id="machine_management_view_form" model="ir.ui.view">
+        <field name="model">machine.management</field>
+        <field name="arch" type="xml">
+
+            <form string="new">
+                <header>
+                    <field name="state" widget="statusbar" statusbar_visible="active,in_service"/>
+                </header>
+
+
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="sequence" readonly="1"/>
+                        </h1>
+                    </div>
+                    <field name="image" widget="image" class="oe_avatar" options="{'preview_image':'image'}"/>
+                        <div class="oe_title">
+                            <label for="name" string="Machine Name"/>
+                            <h1>
+                                <div class="d-flex">
+                                    <field name="name" class="me-3" placeholder="eg:drill"/>
+                                </div>
+
+
+                            </h1>
+                        </div>
+                    <group>
+                        <group>
+                            <field name="sequence"/>
+                            <field name="serial_number"/>
+                            <field name="company"/>
+                            <field name="date_of_purchase"/>
+                            <field name="purchase_value"/>
+                            <field name="customer"/>
+
+                        </group>
+                        <group>
+                            <field name="state"/>
+                            <field name="description"/>
+                            <field name="warranty"/>
+                            <field name="machine_instructions"/>
+                            <field name="machine_type"/>
+
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Machine Description">
+                            <field name="description"/>
+                        </page>
+                         <page string="Instruction">
+                            <field name="instruction"/>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                 </div>
+            </form>
+        </field>
+    </record>
+
+<!--    <menuitem id="machine_menu_root" name="Machine Management"/>-->
+<!--    <menuitem id="machine_menu" name="Machine" parent="machine_menu_root" action="test_machine_management" sequence="1"/>-->
+</odoo>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

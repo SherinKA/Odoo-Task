@@ -1,0 +1,6 @@
+<odoo>
+    <menuitem id="machine_menu_root" name="Machine Management">
+    <menuitem id="machine_menu" name="Machine" action="test_machine_management" />
+    <menuitem id="machine_transfer_menu" name="Machine Transfer" action="test_machine_transfer"/>
+    </menuitem>
+</odoo>

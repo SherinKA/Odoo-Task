@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="test_machine_transfer" model="ir.actions.act_window">
+    <field name="name">Machine Transfer</field>
+    <field name="res_model">machine.transfer</field>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<record id="machine_transfer_view_tree" model="ir.ui.view">
+        <field name="name">Machine</field>
+        <field name="model">machine.transfer</field>
+        <field name="arch" type="xml">
+            <tree string="new">
+                <field name="machine"/>
+                <field name="serial_number"/>
+<!--                <field name="transfer_date"/>-->
+                <field name="transfer_type"/>
+            </tree>
+        </field>
+</record>
+     <record id="machine_transfer_view_form" model="ir.ui.view">
+        <field name="model">machine.transfer</field>
+        <field name="arch" type="xml">
+
+            <form string="new">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="machine"/>
+                            <field name="serial_number"/>
+                        </group>
+                        <group>
+                            <field name="transfer_date"/>
+                            <field name="transfer_type"/>
+<!--                            <field name="customer" invisible="transfer_type, '==', 'remove'"/>-->
+                            <field name="customer" attrs="{'invisible': [('transfer_type', '!=', 'install')]}"/>
+<!--                            <field name="customer" invisible="[('transfer_type', 'in', [install])]"/>-->
+
+
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Information">
+                            <field name="information"/>
+                            <group string="Internal Notes">
+                                <field colspan="2" name="information" nolabel="1" placeholder="This note is only for internal purposes."/>
+                            </group>
+                        </page>
+
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+<!--    <menuitem id="machine_transfer_menu" name="Machine Transfer" parent="machine_menu_root" action="test_machine_transfer" sequence="2"/>-->
+</odoo>
